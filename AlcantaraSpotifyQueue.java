@@ -22,5 +22,25 @@ public class AlcantaraSpotifyQueue {
         return songs.size();
     }
 
-    
+    public void enqueue(Song song) {
+        if (isFull()) {
+            System.out.println("Queue Full: Cannot add " + song + ".");
+            return;
+        }
+        songs.addLast(song);
+    }
+
+    public Song dequeue() {
+        if (isEmpty()) {
+            return null;
+        }
+        return songs.removeFirst();
+    }
+
+    public Song peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        return songs.getFirst();
+    }
 }
